@@ -9,9 +9,10 @@ const router = express.Router();
  */
 const initWebRoutes = (app) => {
     //path, handler
-    router.get("/", homeController.handlerHelloWord);
-    router.get("/user", homeController.handlerUserPage);
-    router.post("/users/create-user",homeController.handlerCreaterNewUser)
+    router.get("/", homeController.handleHelloWord);
+    router.get("/user", homeController.handleUserPage);
+    router.post("/users/create-user", homeController.handleCreaterNewUser)
+    router.post("/delete-user/:id", homeController.handleDeleteUser)
 
 
     return app.use("/", router);
