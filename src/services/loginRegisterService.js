@@ -9,8 +9,6 @@ const hashUserPassword = (userPassword) => {
     return hashPassword;
 
 }
-
-
 const checkEmailExist = async (userEmail) => {
     let user = await db.User.findOne({
         where: { email: userEmail }
@@ -44,7 +42,7 @@ const registerNewUser = async (rawUserData) => {
         if (isPhoneExist === true) {
             return {
                 EM: 'The phone number is already exist',
-                EC: 2
+                EC: 1
             }
         }
         //hash user password
@@ -116,5 +114,5 @@ const handleUserLogin = async (rawUserData) => {
 }
 
 module.exports = {
-    registerNewUser, handleUserLogin
+    registerNewUser, handleUserLogin, hashUserPassword, checkEmailExist, checkPhoneExist
 }
